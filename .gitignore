@@ -1,0 +1,24 @@
+# Skill output — reviews are generated per-project, not committed
+reviews/
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Direnv / local env
+.envrc
+.env
+.env.local
+
+# Claude Code
+.claude/
+
+# OS junk
+*.bak
+*.tmp
+.cache/
