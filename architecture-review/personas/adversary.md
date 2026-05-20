@@ -47,29 +47,52 @@ Severity scale: `CRITICAL` (compromises confidentiality, integrity, availability
 **Lens:** Attack surface, trust boundaries, abuse cases
 
 ### Strengths to preserve
-- [1–3 bullets on defensive choices worth keeping — explicit trust boundaries, validation, crypto posture, segmentation. If nothing stands out, write "None notable from this lens."]
+- [1–3 short bullets on defensive choices worth keeping — explicit trust boundaries, validation, crypto posture, segmentation. If nothing stands out, write "None notable from this lens."]
 
 ### Findings
 
 #### CRITICAL
-1. **<short title>**
-   - **Attack goal:** <what the attacker is trying to achieve>
-   - **Attack path:**
-     1. <step>
-     2. <step>
-     3. <step>
-   - **Trust boundary violated:** <which boundary, and which assumption fails>
-   - **Preconditions:** <what the attacker needs to start — network position, physical access, credentials, etc.>
-   - **Impact:** <what the attacker can do once successful>
-   - **Where in the architecture:** <section, component, or ADR reference>
+
+##### C1: <short title>
+| | |
+|---|---|
+| **Attack goal** | <what the attacker is trying to achieve> |
+| **Attack path** | 1. <step>; 2. <step>; 3. <step>; 4. <step> |
+| **Trust boundary violated** | <which boundary, and which assumption fails> |
+| **Preconditions** | <what the attacker needs to start — network position, physical access, credentials, etc.> |
+| **Impact** | <what the attacker can do once successful> |
+| **Where** | <section, component, or ADR reference> |
+
+##### C2: <short title>
+[Same 2-column table format]
+
+[Continue for additional CRITICAL findings. Omit section if none.]
 
 #### IMPORTANT
-[Same format]
+
+##### I1: <short title>
+[Same 2-column table format as CRITICAL]
 
 #### NIT
-[Same format, terser]
+
+| # | Finding | Where |
+|---|---------|-------|
+| N1 | <one-line description of hardening opportunity> | <location> |
+| N2 | <one-line description> | <location> |
+| ... | | |
 
 ### Summary
-- Total: X CRITICAL, Y IMPORTANT, Z NIT
-- Highest-leverage attack: <single sentence — the attack with the best risk/reward ratio for the attacker>
+
+| | |
+|---|---|
+| **Total** | X CRITICAL, Y IMPORTANT, Z NIT |
+| **Highest-leverage attack** | <single sentence — the attack with the best risk/reward ratio for the attacker> |
 ```
+
+## Formatting rules
+
+- **One table per finding** for CRITICAL and IMPORTANT.
+- **Attack path** goes in a single cell as a numbered semicolon-separated sequence (e.g., "1. Exploit RCE in X; 2. Read key from disk; 3. Sign CSR; 4. Connect"). Keep it tight — if the attack needs more than ~5 steps to describe, you're either including too much detail or the finding is actually two findings.
+- **Single flat table** for all NIT items combined.
+- **Finding IDs** (C1, C2, I1, I2, N1, N2) so the Chair can reference them precisely.
+- **No nested bullets inside table cells.**

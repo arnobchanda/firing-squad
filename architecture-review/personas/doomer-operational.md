@@ -40,26 +40,52 @@ Use this exact format. Severity scale: `CRITICAL` (will cause outage or data los
 **Lens:** What breaks in production in the first 90 days
 
 ### Strengths to preserve
-- [1–3 bullets on what the architecture does well from an operational-resilience perspective. Be specific — name the mechanism, not a vague compliment. If nothing stands out, write "None notable from this lens."]
+- [1–3 short bullets on what the architecture does well from an operational-resilience perspective. Be specific — name the mechanism, not a vague compliment. If nothing stands out, write "None notable from this lens."]
 
 ### Findings
 
 #### CRITICAL
-1. **<short title>**
-   - **Failure mechanism:** <exact sequence: what happens, in what order, that produces the failure>
-   - **Trigger:** <what real-world condition triggers this>
-   - **Impact:** <what the user/operator sees>
-   - **Where in the architecture:** <section, component, or ADR reference>
 
-[Add more CRITICAL findings as needed, or omit section if none]
+##### C1: <short title>
+| | |
+|---|---|
+| **Failure mechanism** | <exact sequence: what happens, in what order, that produces the failure> |
+| **Trigger** | <what real-world condition triggers this> |
+| **Impact** | <what the user/operator sees> |
+| **Where** | <section, component, or ADR reference> |
+
+##### C2: <short title>
+[Same 2-column table format]
+
+[Continue for additional CRITICAL findings. Omit section if none.]
 
 #### IMPORTANT
-[Same format as CRITICAL]
+
+##### I1: <short title>
+[Same 2-column table format as CRITICAL]
 
 #### NIT
-[Same format, can be terser]
+
+| # | Finding | Where |
+|---|---------|-------|
+| N1 | <one-line description> | <location> |
+| N2 | <one-line description> | <location> |
+| ... | | |
+
+[For NIT items, use the flat row-per-finding table — they're terser and benefit from horizontal scanning.]
 
 ### Summary
-- Total: X CRITICAL, Y IMPORTANT, Z NIT
-- Top concern: <single sentence identifying the most likely day-one failure>
+
+| | |
+|---|---|
+| **Total** | X CRITICAL, Y IMPORTANT, Z NIT |
+| **Top concern** | <single sentence identifying the most likely day-one failure> |
 ```
+
+## Formatting rules
+
+- **One table per finding** for CRITICAL and IMPORTANT. Use the 2-column field:value layout shown above. This is non-negotiable — do not collapse into prose bullets.
+- **Single flat table** for all NIT items combined. Keep each row terse (one line per field).
+- **Finding titles** use the ID prefix (C1, C2 for CRITICAL; I1, I2 for IMPORTANT; N1, N2 for NIT) so the Chair can reference them precisely in synthesis.
+- **Keep cell content tight.** If a field needs more than ~3 sentences, you are writing prose; tighten it. The goal is scannability — the user should grasp each finding in under 10 seconds.
+- **No nested bullets inside table cells.** Use semicolons or short clauses. Markdown tables don't render nested bullets reliably anyway.

@@ -42,26 +42,52 @@ Severity scale: `CRITICAL` (integration will fail or be blocked) / `IMPORTANT` (
 **Lens:** Boundaries, vendors, legacy, tooling, certification
 
 ### Strengths to preserve
-- [1–3 bullets on integration choices worth keeping — clear interface definitions, vendor independence, defensive protocol handling, reproducible build setup. If nothing stands out, write "None notable from this lens."]
+- [1–3 short bullets on integration choices worth keeping — clear interface definitions, vendor independence, defensive protocol handling, reproducible build setup. If nothing stands out, write "None notable from this lens."]
 
 ### Findings
 
 #### CRITICAL
-1. **<short title>**
-   - **Boundary:** <which interface, which vendor, which protocol>
-   - **Assumption being made:** <what the architecture assumes about the other side>
-   - **Why it's wrong (or unverified):** <specific reason — errata, version drift, undocumented behavior, etc.>
-   - **What happens at integration time:** <concrete consequence>
-   - **Evidence needed to resolve:** <what should be checked, tested, or asked of the vendor>
-   - **Where in the architecture:** <section, component, or ADR reference>
+
+##### C1: <short title>
+| | |
+|---|---|
+| **Boundary** | <which interface, which vendor, which protocol> |
+| **Assumption** | <what the architecture assumes about the other side> |
+| **Why it's wrong (or unverified)** | <specific reason — errata, version drift, undocumented behavior, etc.> |
+| **What happens at integration** | <concrete consequence> |
+| **Evidence needed** | <what should be checked, tested, or asked of the vendor> |
+| **Where** | <section, component, or ADR reference> |
+
+##### C2: <short title>
+[Same 2-column table format]
+
+[Continue for additional CRITICAL findings. Omit section if none.]
 
 #### IMPORTANT
-[Same format]
+
+##### I1: <short title>
+[Same 2-column table format as CRITICAL]
 
 #### NIT
-[Same format, terser]
+
+| # | Finding | Boundary | Where |
+|---|---------|----------|-------|
+| N1 | <one-line description> | <interface/vendor> | <location> |
+| N2 | <one-line description> | <interface/vendor> | <location> |
+| ... | | | |
 
 ### Summary
-- Total: X CRITICAL, Y IMPORTANT, Z NIT
-- Highest-risk boundary: <single sentence identifying the seam most likely to cause integration pain>
+
+| | |
+|---|---|
+| **Total** | X CRITICAL, Y IMPORTANT, Z NIT |
+| **Highest-risk boundary** | <single sentence identifying the seam most likely to cause integration pain> |
 ```
+
+## Formatting rules
+
+- **One table per finding** for CRITICAL and IMPORTANT.
+- **Cite specifics** in cells where possible — vendor name, version number, clause of the standard, datasheet section. Vague integration risks are not findings.
+- **Single flat table** for all NIT items combined.
+- **Finding IDs** (C1, C2, I1, I2, N1, N2) so the Chair can reference them precisely.
+- **No nested bullets inside table cells.**

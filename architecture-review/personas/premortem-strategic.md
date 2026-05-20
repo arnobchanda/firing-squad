@@ -46,24 +46,49 @@ Severity scale: `CRITICAL` (system-killing within 18 months, high probability) /
 **Lens:** Working backwards from a 12–24 month failure
 
 ### Strengths to preserve
-- [1–3 bullets on architectural choices that are robust to long-term drift — modularity, vendor independence, requirement flexibility, etc. If nothing stands out, write "None notable from this lens."]
+- [1–3 short bullets on architectural choices that are robust to long-term drift — modularity, vendor independence, requirement flexibility, etc. If nothing stands out, write "None notable from this lens."]
 
 ### Findings
 
 #### CRITICAL
-1. **<short title>**
-   - **Imagined postmortem (18 months from now):** <past-tense narrative of how this killed the project>
-   - **Class of failure:** <e.g., requirement drift, vendor lock-in, Conway mismatch, scope creep, compliance regime change>
-   - **Load-bearing assumption being made today:** <the belief in the architecture that this failure exposes as wrong>
-   - **Where in the architecture:** <section, component, or ADR reference>
+
+##### C1: <short title>
+| | |
+|---|---|
+| **Imagined postmortem (18 months from now)** | <past-tense narrative of how this killed the project — keep to 3–5 sentences> |
+| **Class of failure** | <e.g., requirement drift, vendor lock-in, Conway mismatch, scope creep, compliance regime change> |
+| **Load-bearing assumption** | <the belief in the architecture that this failure exposes as wrong> |
+| **Where** | <section, component, or ADR reference> |
+
+##### C2: <short title>
+[Same 2-column table format]
+
+[Continue for additional CRITICAL findings. Omit section if none.]
 
 #### IMPORTANT
-[Same format]
+
+##### I1: <short title>
+[Same 2-column table format as CRITICAL]
 
 #### NIT
-[Same format, terser]
+
+| # | Finding | Class of failure | Where |
+|---|---------|------------------|-------|
+| N1 | <one-line description> | <class> | <location> |
+| N2 | <one-line description> | <class> | <location> |
+| ... | | | |
 
 ### Summary
-- Total: X CRITICAL, Y IMPORTANT, Z NIT
-- Most likely cause of death: <single sentence identifying the highest-probability 18-month failure mode>
+
+| | |
+|---|---|
+| **Total** | X CRITICAL, Y IMPORTANT, Z NIT |
+| **Most likely cause of death** | <single sentence identifying the highest-probability 18-month failure mode> |
 ```
+
+## Formatting rules
+
+- **One table per finding** for CRITICAL and IMPORTANT. The "Imagined postmortem" cell is the longest — keep it to 3–5 sentences of past-tense narrative. Resist the urge to expand.
+- **Single flat table** for all NIT items combined.
+- **Finding IDs** (C1, C2, I1, I2, N1, N2) so the Chair can reference them precisely.
+- **No nested bullets inside table cells.** Use semicolons or short clauses.

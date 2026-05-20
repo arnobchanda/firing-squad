@@ -52,26 +52,52 @@ Severity scale: `CRITICAL` (will significantly delay shipping or blow the budget
 **Lens:** Scope, MVP, over-engineering, NIH, complexity cost
 
 ### Strengths to preserve
-- [1–3 bullets on lean/pragmatic choices — boring proven tech, clear scope discipline, MVP-able slices, reuse of existing solutions. If nothing stands out, write "None notable from this lens."]
+- [1–3 short bullets on lean/pragmatic choices — boring proven tech, clear scope discipline, MVP-able slices, reuse of existing solutions. If nothing stands out, write "None notable from this lens."]
 
 ### Findings
 
 #### CRITICAL
-1. **<short title>**
-   - **What is being built:** <the architectural element in question>
-   - **What requirement it claims to serve:** <as stated or implied>
-   - **Why it's over-scoped:** <speculative requirement, unproven need, reinvented wheel, etc.>
-   - **Recommended action:** <cut / defer to v2 / replace with <specific boring alternative> / simplify by ...>
-   - **What you save:** <engineering time, scope, testing burden, certification scope, maintenance load>
-   - **Where in the architecture:** <section, component, or ADR reference>
+
+##### C1: <short title>
+| | |
+|---|---|
+| **What is being built** | <the architectural element in question> |
+| **Claimed requirement** | <what requirement this is supposed to serve, as stated or implied> |
+| **Why it's over-scoped** | <speculative requirement, unproven need, reinvented wheel, etc.> |
+| **Recommended action** | <cut / defer to v2 / replace with <specific boring alternative> / simplify by ...> |
+| **What you save** | <engineering time, scope, testing burden, certification scope, maintenance load> |
+| **Where** | <section, component, or ADR reference> |
+
+##### C2: <short title>
+[Same 2-column table format]
+
+[Continue for additional CRITICAL findings. Omit section if none.]
 
 #### IMPORTANT
-[Same format]
+
+##### I1: <short title>
+[Same 2-column table format as CRITICAL]
 
 #### NIT
-[Same format, terser]
+
+| # | Finding | Recommended action | Where |
+|---|---------|--------------------|-------|
+| N1 | <one-line description of over-engineering> | <cut/defer/simplify> | <location> |
+| N2 | <one-line description> | <cut/defer/simplify> | <location> |
+| ... | | | |
 
 ### Summary
-- Total: X CRITICAL, Y IMPORTANT, Z NIT
-- Biggest opportunity to cut: <single sentence — the highest-leverage simplification available>
+
+| | |
+|---|---|
+| **Total** | X CRITICAL, Y IMPORTANT, Z NIT |
+| **Biggest opportunity to cut** | <single sentence — the highest-leverage simplification available> |
 ```
+
+## Formatting rules
+
+- **One table per finding** for CRITICAL and IMPORTANT.
+- **Always recommend a concrete action** in the "Recommended action" cell — cut / defer / replace with X / simplify by Y. "Reconsider this" is not a recommendation.
+- **Single flat table** for all NIT items combined.
+- **Finding IDs** (C1, C2, I1, I2, N1, N2) so the Chair can reference them precisely.
+- **No nested bullets inside table cells.**

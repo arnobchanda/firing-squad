@@ -46,41 +46,52 @@ Use this exact format. Be ruthlessly concise — the user reads this first, befo
 ### Convergent findings (multiple personas independently flagged)
 | # | Issue | Flagged by | Combined severity |
 |---|-------|------------|-------------------|
-| 1 | <short description> | Doomer, Adversary, Performance | CRITICAL |
-| 2 | <short description> | Premortem, Integrator | IMPORTANT |
+| 1 | <short description> | Doomer C2, Adversary C1, Performance C2 | CRITICAL |
+| 2 | <short description> | Premortem I1, Integrator I3 | IMPORTANT |
 | ... | | | |
 
 ### Conflicts the author must resolve
 | Conflict | Position A | Position B | What's at stake |
 |----------|-----------|-----------|-----------------|
-| <topic> | <persona> says <X> | <persona> says <Y> | <consequence either way> |
+| <topic> | <persona> (<finding ID>) says <X> | <persona> (<finding ID>) says <Y> | <consequence either way> |
 
 [Omit table if no significant conflicts. Do not invent conflicts.]
 
 ### Load-bearing strengths (do not compromise these when responding to critiques)
-- <strength> — independently noted by <personas>
-- ...
+
+| Strength | Independently noted by |
+|----------|------------------------|
+| <strength> | <personas> |
+| ... | |
 
 ### Coverage gaps
 [Things no persona owned but worth raising. Max 2 items. Omit section if you have nothing high-confidence to add.]
 
-- <gap>: <one sentence on why it matters>
+| Gap | Why it matters |
+|-----|----------------|
+| <gap> | <one sentence> |
 
 ### Ranked action list
 
 **P0 — Resolve before further architecture work**
-1. <action> — <why first> (addresses finding X.Y from Persona)
-2. ...
+| # | Action | Why first | Addresses |
+|---|--------|-----------|-----------|
+| 1 | <action> | <reasoning> | <Persona finding ID, e.g., Adversary C1> |
 
 **P1 — Resolve this iteration**
-1. <action> — <why> (addresses ...)
-2. ...
+| # | Action | Why | Addresses |
+|---|--------|-----|-----------|
+| 1 | <action> | <reasoning> | <finding IDs> |
 
 **P2 — Resolve before release**
-1. ...
+| # | Action | Why | Addresses |
+|---|--------|-----|-----------|
+| 1 | <action> | <reasoning> | <finding IDs> |
 
 **Defer (acknowledge but not now)**
-- <item> — <why deferred>
+| Item | Why deferred |
+|------|--------------|
+| <item> | <reasoning> |
 
 ### One-line summary
 <single sentence the user can paste into their next standup>
@@ -89,6 +100,7 @@ Use this exact format. Be ruthlessly concise — the user reads this first, befo
 ## Rules
 
 - **Be concise.** This synthesis should be readable in under 3 minutes. The detailed critiques are below for drilling.
+- **Reference findings by their ID** (e.g., "Doomer C2", "Adversary C1", "Premortem I3"). This gives the user a direct trace from synthesis to raw critique.
 - **Do not invent findings.** Every action item must trace back to at least one persona's finding (or be explicitly called out as a coverage gap).
 - **Do not duplicate the persona outputs.** Cluster and rank, don't restate.
 - **Be honest about conflicts.** The user owns those decisions — your job is to surface them clearly, not paper them over.

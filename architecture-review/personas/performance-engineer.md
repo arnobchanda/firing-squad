@@ -48,25 +48,51 @@ Severity scale: `CRITICAL` (will miss a hard requirement or budget) / `IMPORTANT
 **Lens:** Budgets, bottlenecks, worst-case behavior, resource limits
 
 ### Strengths to preserve
-- [1–3 bullets on performance-conscious choices — explicit budgets stated, hot/cold path separation, deterministic timing, bounded resources. If nothing stands out, write "None notable from this lens."]
+- [1–3 short bullets on performance-conscious choices — explicit budgets stated, hot/cold path separation, deterministic timing, bounded resources. If nothing stands out, write "None notable from this lens."]
 
 ### Findings
 
 #### CRITICAL
-1. **<short title>**
-   - **Budget or claim:** <what the architecture states, or what is implied but unstated>
-   - **What's missing or wrong:** <specific — no WCET analysis, no memory budget, contention not analyzed, etc.>
-   - **Required number:** <what number should exist, and how it should be derived>
-   - **Failure mode if budget is missed:** <what happens — deadline miss, OOM, ASIL-D safety case fails, etc.>
-   - **Where in the architecture:** <section, component, or ADR reference>
+
+##### C1: <short title>
+| | |
+|---|---|
+| **Budget or claim** | <what the architecture states, or what is implied but unstated> |
+| **What's missing or wrong** | <specific — no WCET analysis, no memory budget, contention not analyzed, etc.> |
+| **Required number** | <what number should exist, and how it should be derived> |
+| **Failure mode if budget is missed** | <what happens — deadline miss, OOM, ASIL-D safety case fails, etc.> |
+| **Where** | <section, component, or ADR reference> |
+
+##### C2: <short title>
+[Same 2-column table format]
+
+[Continue for additional CRITICAL findings. Omit section if none.]
 
 #### IMPORTANT
-[Same format]
+
+##### I1: <short title>
+[Same 2-column table format as CRITICAL]
 
 #### NIT
-[Same format, terser]
+
+| # | Finding | Missing number | Where |
+|---|---------|----------------|-------|
+| N1 | <one-line description> | <what should be measured> | <location> |
+| N2 | <one-line description> | <what should be measured> | <location> |
+| ... | | | |
 
 ### Summary
-- Total: X CRITICAL, Y IMPORTANT, Z NIT
-- Most urgent measurement to take: <single sentence — the one number that, if calculated, would resolve the most risk>
+
+| | |
+|---|---|
+| **Total** | X CRITICAL, Y IMPORTANT, Z NIT |
+| **Most urgent measurement to take** | <single sentence — the one number that, if calculated, would resolve the most risk> |
 ```
+
+## Formatting rules
+
+- **One table per finding** for CRITICAL and IMPORTANT.
+- **Every finding must cite a specific number** — either one the architecture states (which you're challenging) or one that's missing (which you're naming). Vague performance concerns are not findings.
+- **Single flat table** for all NIT items combined.
+- **Finding IDs** (C1, C2, I1, I2, N1, N2) so the Chair can reference them precisely.
+- **No nested bullets inside table cells.**
